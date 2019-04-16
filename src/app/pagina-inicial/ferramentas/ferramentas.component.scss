@@ -1,0 +1,45 @@
+@import '../../../assets/scss/color-palette';
+
+.div-ferramentas{
+    height: 400px;
+
+    ul li:nth-child(3n+1) {
+        clear: left;
+    }
+    li p {
+        font-size: .9em;
+    }
+    .text-center {
+        text-align: center;
+    }
+    .margem {
+        padding: 40px 0 20px 0;
+    }
+    .cor-primaria {
+        color: $primary-color;
+    }
+    .list-unstyled {
+        list-style: none;
+        .has-icon {
+            position: relative;
+            padding-left: 50px;
+            float: left;
+            display: block;
+            width: 31%;
+            margin-right: 2.3%;
+            .icon {
+                display: block;
+                position: absolute;
+                left: 0;
+                top: 20px;
+                line-height: 1;
+                font-size: x-large;
+                color: #107383;
+            }
+        }
+        .has-icon img {
+            height: 30px;
+            width: auto;
+        }
+    }
+}

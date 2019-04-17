@@ -1,13 +1,32 @@
-.sidenav-container {
-  height: 100%;
+.titulo {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #1595aa;
 }
 
-.sidenav {
-  width: 200px;
+.navbar-light .navbar-nav .active > .nav-link.menu-hover:hover {
+  color: #17a2b8;
 }
 
-.mat-toolbar.mat-primary {
-  position: sticky;
-  top: 0;
-  z-index: 1;
+.navbar-light a.navbar-text {
+  color: rgba(0,0,0,.5);
+}
+
+.navbar-light a.navbar-text.fonte-pequena:hover {
+  color: #17a2b8;
+  cursor: pointer;
+}
+
+.form-control:focus {
+  border-color: #17a2b8 !important;
+  box-shadow: 0 0 5px #17a2b8 !important;
+}
+
+form a.navbar-text.fonte-pequena {
+  color: #17a2b8;
+}
+
+.ou {
+  margin: 0 5px 0 5px;
+  color: #a5a5a5;
 }

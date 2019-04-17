@@ -1,3 +1,48 @@
-<p>
-  criar-instancias works!
-</p>
+<div class="container">
+  <mat-horizontal-stepper labelPosition="bottom" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Informações básicas</ng-template>
+        <div class="row">
+          <mat-form-field class="col-sm-6">
+            <input matInput placeholder="Região" formControlName="firstCtrl" required>
+          </mat-form-field>
+          <mat-form-field class="col-sm-6">
+            <input matInput placeholder="Tipo de máquina" formControlName="firstCtrl2" required>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field class="col-sm-6">
+            <input matInput placeholder="Grupo de Segurança" formControlName="firstCtrl3" required>
+          </mat-form-field>
+          <mat-form-field class="col-sm-6">
+            <input matInput placeholder="Preço" formControlName="firstCtrl4" required>
+          </mat-form-field>
+        </div>
+        <div class="step-button">
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Envio de Arquivo</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="Address" formControlName="secondCtrl" required>
+        </mat-form-field>
+        <div class="step-button">
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Concluir</ng-template>
+      You are now done.
+      <div class="step-button">
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>

@@ -1,31 +1,36 @@
-<!-- <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
-      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="!(isHandset$ | async)">
-    <mat-toolbar color="primary">Menu</mat-toolbar>
-    <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <span>AWSCloud</span>
-    </mat-toolbar>
-  </mat-sidenav-content>
-</mat-sidenav-container> -->
+<nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="#">
+    <span class="titulo">
+      <i class="fas fa-cloud"></i>
+      Cloud
+    </span>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-<mat-toolbar>
-  <i class="material-icons">cloud</i>
-  <span>Cloud</span>
-</mat-toolbar>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link menu-hover" href="#">Home <span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link menu-hover" href="#">Link <span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link menu-hover" href="#">Another <span class="sr-only"></span></a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0" [formGroup]="myForm">
+      <input class="form-control form-control-sm mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <a class="navbar-text fonte-pequena" routerLink="/login">Log in</a>
+      <span class="navbar-text ou fonte-pequena">ou</span>
+      <a href="">
+        <button class="btn btn-info" type="submit">
+          Cadastre-se
+        </button>
+      </a>
+    </form>
+  </div>
+</nav>

@@ -2,17 +2,20 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FerramentasComponent } from './ferramentas/ferramentas.component';
 import { MatIconModule } from '@angular/material';
+import { FluxoComponent } from './fluxo/fluxo.component';
 
 @NgModule({
   declarations: [
-    FerramentasComponent
+    FerramentasComponent,
+    FluxoComponent,
   ],
   imports: [
     CommonModule,
     MatIconModule
   ],
   exports: [
-    FerramentasComponent
+    FerramentasComponent,
+    FluxoComponent
   ]
 })
 export class PaginaInicialModule { }

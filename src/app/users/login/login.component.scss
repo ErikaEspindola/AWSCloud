@@ -1,0 +1,61 @@
+@import 'src/assets/scss/color-palette';
+
+.div-login {
+    background-image: linear-gradient(135deg, rgb(35, 115, 146), transparent);
+    background-color: #8AECDE;
+    min-height: 100%;
+    height: 100%;
+    padding: 5% 0;
+    .center {
+        display: flex;
+        justify-content: center;
+    }
+    .fa-cloud {
+        color: #ffffff;
+        font-size: 70px;
+    }
+    .title {
+        color: #ffffff;
+    }
+    .painel {
+        height: 40%;
+        width: auto;
+        background-color: white;
+        box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+        margin: 0 auto 20px;
+        border-radius: 8px;
+        .cor-primaria {
+            color: $primary-color;
+        }
+        .margem-input {
+            margin: 0 20px 0 20px;
+            mat-form-field {
+                width: 100%;
+                mat-icon {
+                    color: $primary-color;
+                }
+            }
+        }
+        .login-form {
+            padding: 40px;
+        }
+        h3 {
+            padding: 40px 0 0;
+        }
+    }
+}
+
+/* default and hover color */
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: $primary-color;
+}
+
+/* focused color */
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: $primary-color;
+}
+
+/* floating label color */
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-label { 
+    color: $primary-color; 
+}

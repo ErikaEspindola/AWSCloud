@@ -5,7 +5,12 @@
         <ng-template matStepLabel>Informações básicas</ng-template>
         <div class="row">
           <mat-form-field class="col-sm-6">
-            <input matInput placeholder="Região" formControlName="firstCtrl" required>
+            <mat-label>Região</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let regiao of listaRegioes" [value]="regiao.RegionName">
+                {{regiao.RegionName}}
+              </mat-option>
+            </mat-select>
           </mat-form-field>
           <mat-form-field class="col-sm-6">
             <input matInput placeholder="Tipo de máquina" formControlName="firstCtrl2" required>

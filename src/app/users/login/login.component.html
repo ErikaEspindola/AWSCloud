@@ -7,25 +7,27 @@
     <div class="painel">
       <h3 class="center cor-primaria">Entre na sua conta</h3>
       <div class="margem-input login-form">
-        <div class="row">
-          <mat-form-field appearance="outline">
-            <mat-label>Access key</mat-label>
-            <input matInput placeholder="Placeholder">
-            <mat-icon matSuffix>vpn_key</mat-icon>
-          </mat-form-field>
-        </div>
-        <div class="row">
-          <mat-form-field appearance="outline">
-            <mat-label>Secret key</mat-label>
-            <input matInput placeholder="Placeholder">
-            <mat-icon matSuffix>vpn_key</mat-icon>
-          </mat-form-field>
-        </div>
-        <div class="row center">
-          <div class="col-sm-6">
-            <button type="submit" class="btn btn-info btn-lg btn-block" (click)="redirecionarPaginaInstancia()">Entrar</button>
+        <form [formGroup]="loginForm">
+          <div class="row">
+            <mat-form-field appearance="outline">
+              <mat-label>Access key</mat-label>
+              <input matInput formControlName="access" required>
+              <mat-icon matSuffix>vpn_key</mat-icon>
+            </mat-form-field>
           </div>
-        </div>
+          <div class="row">
+            <mat-form-field appearance="outline">
+              <mat-label>Secret key</mat-label>
+              <input matInput formControlName="secret" required>
+              <mat-icon matSuffix>vpn_key</mat-icon>
+            </mat-form-field>
+          </div>
+          <div class="row center">
+            <div class="col-sm-6">
+              <button type="submit" class="btn btn-info btn-lg btn-block" (click)="entrarComChavesAcesso()">Entrar</button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   </div>

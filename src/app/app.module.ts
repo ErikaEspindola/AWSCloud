@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,7 +20,8 @@ import { ListarInstanciasComponent } from './instancias/listar-instancias/listar
 import { IntroducaoComponent } from './pagina-inicial/introducao/introducao.component';
 import { LoginComponent } from './users/login/login.component';
 import { PaginaInstanciasComponent } from './instancias/pagina-instancias/pagina-instancias.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { InstanciasService } from './instancias/instancias.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -49,12 +51,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatCheckboxModule,
     MatTabsModule,
     MatStepperModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   exports: [
     IntroducaoComponent
   ],
-  providers: [],
+  providers: [
+    InstanciasService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

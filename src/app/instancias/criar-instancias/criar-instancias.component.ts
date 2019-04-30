@@ -33,4 +33,9 @@ export class CriarInstanciasComponent implements OnInit {
       (error) => console.log(error)
     )
   }
+
+  criarInstancia() {
+    this._instanciasService.criarInstancia()
+    .subscribe();
+  }
 }

@@ -1,0 +1,5 @@
+@import '../../../assets/scss/color-palette';
+
+::ng-deep .mat-ink-bar {
+    background-color: var(--primary-color, $primary-color) !important;
+}

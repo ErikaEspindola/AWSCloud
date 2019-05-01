@@ -24,6 +24,22 @@
             <input matInput placeholder="Preço" formControlName="firstCtrl4" required>
           </mat-form-field>
         </div>
+        <div class="row">
+          <mat-form-field class="col-sm-6">
+            <input matInput placeholder="Image ID" formControlName="firstCtrl5" required>
+          </mat-form-field>
+          <mat-form-field class="col-sm-6">
+            <input matInput placeholder="Nome da Máquina" formControlName="firstCtrl6" required>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field class="col-sm-6">
+            <input matInput placeholder="Tipo de volume" formControlName="firstCtrl7" required>
+          </mat-form-field>
+          <mat-form-field class="col-sm-6">
+            <input matInput placeholder="Tamanho do volume" formControlName="firstCtrl8" required>
+          </mat-form-field>
+        </div>
         <div class="step-button">
           <button mat-button matStepperNext>Next</button>
         </div>
@@ -32,9 +48,7 @@
     <mat-step [stepControl]="secondFormGroup">
       <form [formGroup]="secondFormGroup">
         <ng-template matStepLabel>Envio de Arquivo</ng-template>
-        <mat-form-field>
-          <input matInput placeholder="Address" formControlName="secondCtrl" required>
-        </mat-form-field>
+        <app-upload></app-upload>
         <div class="step-button">
           <button mat-button matStepperPrevious>Back</button>
           <button mat-button matStepperNext>Next</button>

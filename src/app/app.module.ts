@@ -22,6 +22,9 @@ import { LoginComponent } from './users/login/login.component';
 import { PaginaInstanciasComponent } from './instancias/pagina-instancias/pagina-instancias.component';
 import { InstanciasService } from './instancias/instancias.service';
 import { HttpClientModule } from '@angular/common/http';
+import { UploadComponent } from './upload/upload.component';
+
+import { NgxDropzoneModule } from 'ngx-dropzone';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,8 @@ import { HttpClientModule } from '@angular/common/http';
     ListarInstanciasComponent,
     PaginaInstanciasComponent,
     IntroducaoComponent,
-    LoginComponent
+    LoginComponent,
+    UploadComponent
   ],
   imports: [
     BrowserModule,
@@ -52,13 +56,14 @@ import { HttpClientModule } from '@angular/common/http';
     MatTabsModule,
     MatStepperModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxDropzoneModule
   ],
   exports: [
     IntroducaoComponent
   ],
   providers: [
-    InstanciasService,
+    InstanciasService
   ],
   bootstrap: [AppComponent]
 })

@@ -8,3 +8,11 @@
 ::ng-deep .mat-step-header .mat-step-icon-selected {
     background-color: $secondary-color; 
 }
+
+.mat-list-base {
+    display: flex;
+}
+
+.mat-list-base .mat-list-item .mat-list-item-content {
+    justify-content: center !important;
+}

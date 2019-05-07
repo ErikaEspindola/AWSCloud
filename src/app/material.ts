@@ -6,7 +6,8 @@ import {
     MatRadioModule,
     MatDialogModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule
  } from '@angular/material';
  
 import { NgModule } from '@angular/core';
@@ -20,7 +21,8 @@ import { NgModule } from '@angular/core';
         MatRadioModule,
         MatDialogModule,
         MatToolbarModule,
-        MatIconModule
+        MatIconModule,
+        MatCardModule
     ],
     exports: [ 
         MatInputModule,
@@ -29,7 +31,8 @@ import { NgModule } from '@angular/core';
         MatSelectModule,
         MatRadioModule,
         MatToolbarModule,
-        MatIconModule
+        MatIconModule,
+        MatCardModule
     ],
 })
 

@@ -6,38 +6,43 @@
         <div class="row">
           <mat-form-field class="col-sm-6">
             <mat-label>Região</mat-label>
-            <mat-select>
+            <mat-select formControlName="nomeRegiao">
               <mat-option *ngFor="let regiao of listaRegioes" [value]="regiao.RegionName">
                 {{regiao.RegionName}}
               </mat-option>
             </mat-select>
           </mat-form-field>
           <mat-form-field class="col-sm-6">
-            <input matInput placeholder="Tipo de máquina" formControlName="firstCtrl2" required>
+            <mat-label>Tipo de Instância</mat-label>
+            <mat-select formControlName="tipoMaquina">
+              <mat-option *ngFor="let tipo of listaTipoInstancias" [value]="tipo">
+                {{tipo}}
+              </mat-option>
+            </mat-select>
           </mat-form-field>
         </div>
         <div class="row">
           <mat-form-field class="col-sm-6">
-            <input matInput placeholder="Grupo de Segurança" formControlName="firstCtrl3" required>
+            <input matInput placeholder="Grupo de Segurança" formControlName="grupoSeguranca" required>
           </mat-form-field>
           <mat-form-field class="col-sm-6">
-            <input matInput placeholder="Preço" formControlName="firstCtrl4" required>
-          </mat-form-field>
-        </div>
-        <div class="row">
-          <mat-form-field class="col-sm-6">
-            <input matInput placeholder="Image ID" formControlName="firstCtrl5" required>
-          </mat-form-field>
-          <mat-form-field class="col-sm-6">
-            <input matInput placeholder="Nome da Máquina" formControlName="firstCtrl6" required>
+            <input matInput placeholder="Preço" formControlName="precoInstancia" required>
           </mat-form-field>
         </div>
         <div class="row">
           <mat-form-field class="col-sm-6">
-            <input matInput placeholder="Tipo de volume" formControlName="firstCtrl7" required>
+            <input matInput placeholder="Image ID" formControlName="imageId" required>
           </mat-form-field>
           <mat-form-field class="col-sm-6">
-            <input matInput placeholder="Tamanho do volume" formControlName="firstCtrl8" required>
+            <input matInput placeholder="Nome da Máquina" formControlName="nomeMaquina" required>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field class="col-sm-6">
+            <input matInput placeholder="Tipo de volume" formControlName="tipoVolume" required>
+          </mat-form-field>
+          <mat-form-field class="col-sm-6">
+            <input matInput placeholder="Tamanho do volume" formControlName="tamanhoVolume" required>
           </mat-form-field>
         </div>
         <div class="step-button">
@@ -57,7 +62,18 @@
     </mat-step>
     <mat-step>
       <ng-template matStepLabel>Concluir</ng-template>
-      You are now done.
+      <mat-card>
+        <mat-list>
+          <mat-list-item>
+            <h4>Total de instâncias</h4>
+            <span>1</span>
+          </mat-list-item>
+          <mat-divider [vertical]="true"></mat-divider>
+          <mat-list-item>Item 2</mat-list-item>
+          <mat-divider [vertical]="true"></mat-divider>
+          <mat-list-item>Item 3</mat-list-item>
+        </mat-list>
+      </mat-card>
       <div class="step-button">
         <button mat-button matStepperPrevious>Voltar</button>
         <button mat-button (click)="criarInstancia()">Criar instância</button>

@@ -16,4 +16,8 @@ export class InstanciasService {
   criarInstancia() {
     return this.httpClient.get(environment.api + 'request_spot_instance');
   }
+
+  listarTiposInstancias() {
+    return this.httpClient.get(environment.api + 'instace_types');
+  }
 }

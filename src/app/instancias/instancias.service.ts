@@ -13,8 +13,8 @@ export class InstanciasService {
     return this.httpClient.get(environment.api + 'listar_regioes');
   }
 
-  criarInstancia() {
-    return this.httpClient.get(environment.api + 'request_spot_instance');
+  criarInstancia(dados) {
+    return this.httpClient.post(environment.api + 'request_spot_instance', dados);
   }
 
   listarTiposInstancias() {

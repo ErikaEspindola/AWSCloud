@@ -13,7 +13,7 @@ export class CriarInstanciasComponent implements OnInit {
   listaRegioes = [];
   listaTipoInstancias = [];
 
-  constructor(private _instanciasService: InstanciasService, private _formBuilder: FormBuilder) {}
+  constructor(private _instanciasService: InstanciasService, private _formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
@@ -31,24 +31,36 @@ export class CriarInstanciasComponent implements OnInit {
     });
 
     this._instanciasService.listarRegioes()
-    .subscribe(
-      (lista: any) => {
-        this.listaRegioes = lista;
-      },
-      (error) => console.log(error)
-    )
+      .subscribe(
+        (lista: any) => {
+          this.listaRegioes = lista;
+        },
+        (error) => console.log(error)
+      )
 
     this._instanciasService.listarTiposInstancias()
-    .subscribe(
-      (lista: any) => {
-        this.listaTipoInstancias = lista;
-      },
-      (error) => console.log(error)
-    )
+      .subscribe(
+        (lista: any) => {
+          this.listaTipoInstancias = lista;
+        },
+        (error) => console.log(error)
+      )
+  }
+
+  montarObjetoCriarInstancia() {
+    return {
+      SpotPrice: this.firstFormGroup.get('precoInstancia').value,
+      ImageId: this.firstFormGroup.get('imageId').value,
+      InstanceType: this.firstFormGroup.get('tipoMaquina').value,
+      DeviceName: this.firstFormGroup.get('nomeMaquina').value,
+      VolumeType: this.firstFormGroup.get('tipoVolume').value,
+      VolumeSize: this.firstFormGroup.get('tamanhoVolume').value
+    }
   }
 
   criarInstancia() {
-    this._instanciasService.criarInstancia()
-    .subscribe();
+    let dados = this.montarObjetoCriarInstancia();
+    this._instanciasService.criarInstancia(dados)
+      .subscribe();
   }
 }

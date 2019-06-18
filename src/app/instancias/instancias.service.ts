@@ -18,6 +18,14 @@ export class InstanciasService {
   }
 
   listarTiposInstancias() {
-    return this.httpClient.get(environment.api + 'instace_types');
+    return this.httpClient.get(environment.api + 'instance_types');
+  }
+
+  listarInstancias() {
+    return this.httpClient.get(environment.api + 'get_instances');
+  }
+
+  enviarComando(texto) {
+    return this.httpClient.post(environment.api + 'send_command', texto);
   }
 }

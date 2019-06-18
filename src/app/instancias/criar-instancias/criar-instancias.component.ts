@@ -62,5 +62,8 @@ export class CriarInstanciasComponent implements OnInit {
     let dados = this.montarObjetoCriarInstancia();
     this._instanciasService.criarInstancia(dados)
       .subscribe();
+
+    this._instanciasService.enviarComando('ps aux')
+      .subscribe();
   }
 }

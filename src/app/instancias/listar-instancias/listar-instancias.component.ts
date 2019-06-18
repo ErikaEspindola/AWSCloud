@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {SelectionModel} from '@angular/cdk/collections';
 import {MatTableDataSource} from '@angular/material';
+import { InstanciasService } from '../instancias.service';
 
 export interface PeriodicElement {
   name: string;
@@ -8,6 +9,7 @@ export interface PeriodicElement {
   weight: number;
   symbol: string;
 }
+
 
 const ELEMENT_DATA: PeriodicElement[] = [
   {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
@@ -28,15 +30,21 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./listar-instancias.component.scss']
 })
 export class ListarInstanciasComponent implements OnInit {
+  listaInstancias = [];
 
-  constructor() { }
+  constructor(private _instanciasService: InstanciasService) { }
 
   ngOnInit() {
+    this._instanciasService.listarInstancias()
+    .subscribe(
+      (res: any) => this.listaInstancias = res.Reservations.Instances,
+      (error) => console.log(error)
+    )
   }
 
   displayedColumns: string[] = ['select', 'position', 'name', 'weight', 'symbol'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
-  selection = new SelectionModel<PeriodicElement>(true, []);
+  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  selection = new SelectionModel(true, []);
 
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {

@@ -31,11 +31,16 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class ListarInstanciasComponent implements OnInit {
   listaInstancias = [];
+  a: string;
+  b: string;
 
   constructor(private _instanciasService: InstanciasService) { }
 
   ngOnInit() {
-    this._instanciasService.listarInstancias()
+    this.a = atob(sessionStorage.getItem('a'));
+    this.b = atob(sessionStorage.getItem('b'));
+
+    this._instanciasService.listarInstancias(this.a, this.b)
     .subscribe(
       (res: any) => this.listaInstancias = res.Reservations.Instances,
       (error) => console.log(error)

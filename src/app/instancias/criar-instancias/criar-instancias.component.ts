@@ -12,10 +12,15 @@ export class CriarInstanciasComponent implements OnInit {
   secondFormGroup: FormGroup;
   listaRegioes = [];
   listaTipoInstancias = [];
+  a: string;
+  b: string;
 
   constructor(private _instanciasService: InstanciasService, private _formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.a = atob(sessionStorage.getItem('a'));
+    this.b = atob(sessionStorage.getItem('b'));
+
     this.firstFormGroup = this._formBuilder.group({
       nomeRegiao: ['', Validators.required],
       tipoMaquina: ['', Validators.required],
@@ -30,7 +35,7 @@ export class CriarInstanciasComponent implements OnInit {
       secondCtrl: ['', Validators.required]
     });
 
-    this._instanciasService.listarRegioes()
+    this._instanciasService.listarRegioes(this.a, this.b)
       .subscribe(
         (lista: any) => {
           this.listaRegioes = lista;
@@ -38,7 +43,7 @@ export class CriarInstanciasComponent implements OnInit {
         (error) => console.log(error)
       )
 
-    this._instanciasService.listarTiposInstancias()
+    this._instanciasService.listarTiposInstancias(this.a, this.b)
       .subscribe(
         (lista: any) => {
           this.listaTipoInstancias = lista;
@@ -54,7 +59,9 @@ export class CriarInstanciasComponent implements OnInit {
       InstanceType: this.firstFormGroup.get('tipoMaquina').value,
       DeviceName: this.firstFormGroup.get('nomeMaquina').value,
       VolumeType: this.firstFormGroup.get('tipoVolume').value,
-      VolumeSize: this.firstFormGroup.get('tamanhoVolume').value
+      VolumeSize: this.firstFormGroup.get('tamanhoVolume').value,
+      ak: this.a,
+      sk: this.b
     }
   }
 

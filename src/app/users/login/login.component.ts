@@ -22,11 +22,9 @@ export class LoginComponent implements OnInit {
 
   public entrarComChavesAcesso() {
     if(this.loginForm.valid) {
-      this._usersService.setKeys(this.loginForm.get('access').value, this.loginForm.get('secret').value)
-      .subscribe(
-        () => this.router.navigate(['/pagina-instancias']),
-        (error) => console.log(error)
-      );
+      sessionStorage.setItem('a', btoa(this.loginForm.get('access').value));
+      sessionStorage.setItem('b', btoa(this.loginForm.get('secret').value));
+      this.router.navigate(['/pagina-instancias'])
     } else {
       this.loginForm.markAsTouched();
     }

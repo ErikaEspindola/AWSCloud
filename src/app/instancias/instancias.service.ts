@@ -9,20 +9,35 @@ export class InstanciasService {
 
   constructor(private httpClient: HttpClient) { }
 
-  listarRegioes() {
-    return this.httpClient.get(environment.api + 'listar_regioes');
+  listarRegioes(ak, sk) {
+    let param = {
+      ak: ak,
+      sk: sk
+    };
+
+    return this.httpClient.post(environment.api + 'listar_regioes', param);
   }
 
   criarInstancia(dados) {
     return this.httpClient.post(environment.api + 'request_spot_instance', dados);
   }
 
-  listarTiposInstancias() {
-    return this.httpClient.get(environment.api + 'instance_types');
+  listarTiposInstancias(ak, sk) {
+    let param = {
+      ak: ak,
+      sk: sk
+    };
+
+    return this.httpClient.post(environment.api + 'instance_types', param);
   }
 
-  listarInstancias() {
-    return this.httpClient.get(environment.api + 'get_instances');
+  listarInstancias(ak, sk) {
+    let param = {
+      ak: ak,
+      sk: sk
+    };
+
+    return this.httpClient.post(environment.api + 'get_instances', param);
   }
 
   enviarComando(texto) {

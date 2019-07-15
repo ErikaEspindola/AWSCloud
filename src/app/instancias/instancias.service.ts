@@ -45,11 +45,6 @@ export class InstanciasService {
   }
 
   uploadFile(file) {
-    let headers = new HttpHeaders({
-      'Content-Type': null,
-      'Accept': "multipart/form-data"
-    });
-
-    return this.httpClient.post(environment.api + 'upload_file', file, {headers});
+    return this.httpClient.post(environment.api + 'upload_file', file);
   }
 }

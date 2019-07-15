@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -42,5 +42,14 @@ export class InstanciasService {
 
   enviarComando(texto) {
     return this.httpClient.post(environment.api + 'send_command', texto);
+  }
+
+  uploadFile(file) {
+    let headers = new HttpHeaders({
+      'Content-Type': null,
+      'Accept': "multipart/form-data"
+    });
+
+    return this.httpClient.post(environment.api + 'upload_file', file, {headers});
   }
 }

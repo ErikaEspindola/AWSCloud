@@ -22,7 +22,7 @@ import { LoginComponent } from './users/login/login.component';
 import { PaginaInstanciasComponent } from './instancias/pagina-instancias/pagina-instancias.component';
 import { InstanciasService } from './instancias/instancias.service';
 import { HttpClientModule } from '@angular/common/http';
-import { UploadComponent } from './upload/upload.component';
+import { UploadComponent } from './instancias/upload/upload.component';
 
 import { NgxDropzoneModule } from 'ngx-dropzone';
 

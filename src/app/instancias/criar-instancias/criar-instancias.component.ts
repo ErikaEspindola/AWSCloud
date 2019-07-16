@@ -52,6 +52,26 @@ export class CriarInstanciasComponent implements OnInit {
       )
   }
 
+  onFilesAdded(files: File[]) {
+
+    this.upload(files, 0);
+
+  }
+  
+  upload(array, i) {
+
+    if(i < array.length) {
+      let formData = new FormData();
+
+      formData.append('file', array[i], array[i].name);
+
+      this._instanciasService.uploadFile(formData)
+      .subscribe(x => console.log(x));
+
+      this.upload(array, i + 1);
+    }
+  }
+
   montarObjetoCriarInstancia() {
     return {
       SpotPrice: this.firstFormGroup.get('precoInstancia').value,
@@ -67,6 +87,7 @@ export class CriarInstanciasComponent implements OnInit {
 
   criarInstancia() {
     let dados = this.montarObjetoCriarInstancia();
+
     this._instanciasService.criarInstancia(dados)
       .subscribe();
 

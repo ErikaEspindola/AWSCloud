@@ -1,4 +1,4 @@
-@import '../../../assets/scss/color-palette';
+@import 'src/assets/scss/color-palette.scss';
 
 .step-button {
     display: flex;
@@ -15,4 +15,21 @@
 
 .mat-list-base .mat-list-item .mat-list-item-content {
     justify-content: center !important;
+}
+
+ngx-dropzone {
+    margin: 20px 0;
+  
+    &.custom-dropzone {
+      background: rgb(247, 247, 247);
+      border: 2px dashed $secondary-color;
+
+      &.hovered {
+        border-style: solid;
+      }
+    }
+}
+
+.upload-info {
+  color: #138da1;
 }

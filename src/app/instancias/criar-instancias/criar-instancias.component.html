@@ -50,16 +50,21 @@
         </div>
       </form>
     </mat-step>
+    
     <mat-step [stepControl]="secondFormGroup">
       <form [formGroup]="secondFormGroup">
         <ng-template matStepLabel>Envio de Arquivo</ng-template>
-        <app-upload></app-upload>
+        <ngx-dropzone label="Clique ou arraste os arquivos para fazer upload" class="custom-dropzone"
+          (filesAdded)="onFilesAdded($event, 1)" [showPreviews]="true">
+        </ngx-dropzone>
+        <h4 class="upload-info">* Inclua o arquivo para enviar para a instância e o arquivo .pem</h4>
         <div class="step-button">
           <button mat-button matStepperPrevious>Back</button>
           <button mat-button matStepperNext>Next</button>
         </div>
       </form>
     </mat-step>
+
     <mat-step>
       <ng-template matStepLabel>Concluir</ng-template>
       <mat-card>

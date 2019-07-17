@@ -26,7 +26,11 @@ form a.navbar-text.fonte-pequena {
   color: #17a2b8;
 }
 
-.ou {
-  margin: 0 5px 0 5px;
-  color: #a5a5a5;
+.btn-info.login {
+  font-size: 1.3rem;
+}
+
+.gradient {
+  height: 3px;
+  background-image: linear-gradient(135deg, #cff2ff, #21b0ce);
 }

@@ -12,6 +12,7 @@ export class CriarInstanciasComponent implements OnInit {
   secondFormGroup: FormGroup;
   listaRegioes = [];
   listaTipoInstancias = [];
+  uploadFiles: File[] = []
   a: string;
   b: string;
 
@@ -24,12 +25,8 @@ export class CriarInstanciasComponent implements OnInit {
     this.firstFormGroup = this._formBuilder.group({
       nomeRegiao: ['', Validators.required],
       tipoMaquina: ['', Validators.required],
-      grupoSeguranca: ['', Validators.required],
       precoInstancia: ['', Validators.required],
-      imageId: ['', Validators.required],
-      nomeMaquina: ['', Validators.required],
-      tipoVolume: ['', Validators.required],
-      tamanhoVolume: ['', Validators.required],
+      nomeComando: ['', Validators.required]
     });
     this.secondFormGroup = this._formBuilder.group({
       secondCtrl: ['', Validators.required]
@@ -54,8 +51,7 @@ export class CriarInstanciasComponent implements OnInit {
 
   onFilesAdded(files: File[]) {
 
-    this.upload(files, 0);
-
+    this.uploadFiles = files;
   }
   
   upload(array, i) {
@@ -73,23 +69,23 @@ export class CriarInstanciasComponent implements OnInit {
   }
 
   montarObjetoCriarInstancia() {
+
     return {
       SpotPrice: this.firstFormGroup.get('precoInstancia').value,
-      ImageId: this.firstFormGroup.get('imageId').value,
       InstanceType: this.firstFormGroup.get('tipoMaquina').value,
-      DeviceName: this.firstFormGroup.get('nomeMaquina').value,
-      VolumeType: this.firstFormGroup.get('tipoVolume').value,
-      VolumeSize: this.firstFormGroup.get('tamanhoVolume').value,
       ak: this.a,
       sk: this.b
     }
   }
 
   criarInstancia() {
+
     let dados = this.montarObjetoCriarInstancia();
 
     this._instanciasService.criarInstancia(dados)
       .subscribe();
+
+    this.upload(this.uploadFiles, 0);
 
     this._instanciasService.enviarComando('ps aux')
       .subscribe();

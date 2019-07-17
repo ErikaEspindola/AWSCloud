@@ -3,8 +3,9 @@
     <mat-step [stepControl]="firstFormGroup">
       <form [formGroup]="firstFormGroup">
         <ng-template matStepLabel>Informações básicas</ng-template>
+
         <div class="row">
-          <mat-form-field class="col-sm-6">
+          <mat-form-field class="col-sm-4">
             <mat-label>Região</mat-label>
             <mat-select formControlName="nomeRegiao">
               <mat-option *ngFor="let regiao of listaRegioes" [value]="regiao.RegionName">
@@ -12,7 +13,8 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
-          <mat-form-field class="col-sm-6">
+
+          <mat-form-field class="col-sm-4">
             <mat-label>Tipo de Instância</mat-label>
             <mat-select formControlName="tipoMaquina">
               <mat-option *ngFor="let tipo of listaTipoInstancias" [value]="tipo">
@@ -20,33 +22,20 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
+
+          <mat-form-field class="col-sm-4">
+            <input matInput placeholder="Lance" formControlName="precoInstancia" required>
+          </mat-form-field>
         </div>
+
         <div class="row">
-          <mat-form-field class="col-sm-6">
-            <input matInput placeholder="Grupo de Segurança" formControlName="grupoSeguranca" required>
-          </mat-form-field>
-          <mat-form-field class="col-sm-6">
-            <input matInput placeholder="Preço" formControlName="precoInstancia" required>
+          <mat-form-field class="col-sm-12">
+            <input matInput placeholder="Comando para executar" formControlName="nomeComando" required>
           </mat-form-field>
         </div>
-        <div class="row">
-          <mat-form-field class="col-sm-6">
-            <input matInput placeholder="Image ID" formControlName="imageId" required>
-          </mat-form-field>
-          <mat-form-field class="col-sm-6">
-            <input matInput placeholder="Nome da Máquina" formControlName="nomeMaquina" required>
-          </mat-form-field>
-        </div>
-        <div class="row">
-          <mat-form-field class="col-sm-6">
-            <input matInput placeholder="Tipo de volume" formControlName="tipoVolume" required>
-          </mat-form-field>
-          <mat-form-field class="col-sm-6">
-            <input matInput placeholder="Tamanho do volume" formControlName="tamanhoVolume" required>
-          </mat-form-field>
-        </div>
+
         <div class="step-button">
-          <button mat-button matStepperNext>Next</button>
+          <button mat-button matStepperNext>Próximo</button>
         </div>
       </form>
     </mat-step>
@@ -59,8 +48,8 @@
         </ngx-dropzone>
         <h4 class="upload-info">* Inclua o arquivo para enviar para a instância e o arquivo .pem</h4>
         <div class="step-button">
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
+          <button mat-button matStepperPrevious>Anterior</button>
+          <button mat-button matStepperNext>Próximo</button>
         </div>
       </form>
     </mat-step>

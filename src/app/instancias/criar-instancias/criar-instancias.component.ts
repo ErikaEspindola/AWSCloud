@@ -73,6 +73,7 @@ export class CriarInstanciasComponent implements OnInit {
     return {
       SpotPrice: this.firstFormGroup.get('precoInstancia').value,
       InstanceType: this.firstFormGroup.get('tipoMaquina').value,
+      command: this.firstFormGroup.get('nomeComando').value,
       ak: this.a,
       sk: this.b
     }
@@ -86,8 +87,5 @@ export class CriarInstanciasComponent implements OnInit {
       .subscribe();
 
     this.upload(this.uploadFiles, 0);
-
-    this._instanciasService.enviarComando('ps aux')
-      .subscribe();
   }
 }

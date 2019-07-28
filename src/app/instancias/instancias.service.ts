@@ -40,10 +40,6 @@ export class InstanciasService {
     return this.httpClient.post(environment.api + 'get_instances', param);
   }
 
-  enviarComando(texto) {
-    return this.httpClient.post(environment.api + 'send_command', texto);
-  }
-
   uploadFile(file) {
     return this.httpClient.post(environment.api + 'upload_file', file);
   }
